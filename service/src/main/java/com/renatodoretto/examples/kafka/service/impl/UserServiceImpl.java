@@ -1,4 +1,4 @@
-package com.renatodoretto.examples.kafka.services.impl;
+package com.renatodoretto.examples.kafka.service.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.renatodoretto.examples.kafka.core.model.User;
 import com.renatodoretto.examples.kafka.core.repository.UserRepository;
-import com.renatodoretto.examples.kafka.services.UserService;
+import com.renatodoretto.examples.kafka.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {

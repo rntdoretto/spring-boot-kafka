@@ -7,7 +7,7 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>java:com.renatodoretto.examples.kafka.api.SpringBootKafkaApplication</config>
+		<config>java:com.renatodoretto.examples.kafka.api.KafkaApplication</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

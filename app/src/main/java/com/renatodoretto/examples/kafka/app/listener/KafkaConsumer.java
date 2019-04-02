@@ -12,33 +12,28 @@ import org.springframework.stereotype.Service;
 
 import com.renatodoretto.examples.kafka.core.dto.UserDTO;
 import com.renatodoretto.examples.kafka.core.model.User;
-import com.renatodoretto.examples.kafka.services.UserService;
+import com.renatodoretto.examples.kafka.service.UserService;
 
 @Service
 public class KafkaConsumer {
 
 	@Autowired
 	private UserService userService;
-	
-	@Autowired
-	private ModelMapper modelMapper;
 
 	@KafkaListener(groupId = "group_id", containerFactory = "kafkaListenerContainerFactory", topicPartitions = @TopicPartition(topic = "Kafka_Example", partitionOffsets = {
 			@PartitionOffset(partition = "0", initialOffset = "0") }))
 	public void listenToPartition(@Payload String message, @Header(KafkaHeaders.RECEIVED_PARTITION_ID) int partition) {
-		// System.out.println("Consumed message: " + message + " from partition: " +
-		// partition);
-		userService.consume(message);
+		userService.consume("1 - " + message);
 	}
 
-	@KafkaListener(groupId = "group_json", containerFactory = "userKafkaListenerContainerFactory", topicPartitions = @TopicPartition(topic = "Kafka_Example_JSON", partitionOffsets = {
-			@PartitionOffset(partition = "0", initialOffset = "0") }))
+	@KafkaListener(topics = "Kafka_Example_JSON", groupId = "group_json", containerFactory = "userKafkaListenerContainerFactory")
 	public void consume(UserDTO userDTO) {
 		User user = this.convertToModel(userDTO);
 		userService.saveUser(user);
 	}
 	
 	private User convertToModel(UserDTO userDTO) {
+		ModelMapper modelMapper = new ModelMapper();
 		return modelMapper.map(userDTO, User.class);
 	}
 }

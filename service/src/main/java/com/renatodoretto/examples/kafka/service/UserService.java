@@ -1,4 +1,4 @@
-package com.renatodoretto.examples.kafka.services;
+package com.renatodoretto.examples.kafka.service;
 
 import com.renatodoretto.examples.kafka.core.model.User;
 
