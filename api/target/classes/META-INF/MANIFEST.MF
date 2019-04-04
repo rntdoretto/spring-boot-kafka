@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Implementation-Title: spring-boot-kafka-api
 Implementation-Version: 0.0.1-SNAPSHOT
 Built-By: rdoretto
-Implementation-Vendor-Id: com.renatodoretto.springbootkafka
+Implementation-Vendor-Id: com.renatodoretto.examples
 Build-Jdk: 1.8.0_74
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
  ot-starter-parent/spring-boot-kafka/spring-boot-kafka-api
